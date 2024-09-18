@@ -1,0 +1,11 @@
+function sort product:
+
+  void sortProductsList(String sortyby, String order) async {
+    try {
+      isLoading(true);
+      var sortmodel = await ProductService().sortProducts(sortyby, order);
+      sortproducts.assignAll(sortmodel.products ?? []);
+    } finally {
+      isLoading(false);
+    }
+  }
